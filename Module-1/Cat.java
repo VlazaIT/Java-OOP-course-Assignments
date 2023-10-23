@@ -1,3 +1,5 @@
+// Module 1.1. Task 4
+
 public class Cat {
     private String name;
 
