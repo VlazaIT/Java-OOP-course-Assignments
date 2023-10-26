@@ -21,7 +21,6 @@ public class QuadraticEquation {
         if (D > 0) {
             x1 = (-b + Math.sqrt(D))/(2*a);
             x2 = (-b - Math.sqrt(D))/(2*a);
-            //System.out.printf("The equation has 2 roots. x1 %.2f is ", x1,  " and x2 is " , x2);
             System.out.printf("The equation has 2 roots: x1 = %.2f and x2 = %.2f", x1, x2);
         }
         else if (D == 0) {
