@@ -1,6 +1,6 @@
 package TaskSet1;
 
-// Module 3.1. Task 2.
+// Task 2.
 
 public class Bus extends Car {
     private int passengerCapacity;
