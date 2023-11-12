@@ -1,6 +1,6 @@
 package TaskSet1;
 
-// Module 3.1. Task 1.
+// Task 1.
 
 public class Driving {
     public static void main(String[] args) {
