@@ -1,3 +1,5 @@
+// Module 3.1. Task 1.
+
 public class Car {
     private float speed;
     private float gasolineLevel;
@@ -5,100 +7,63 @@ public class Car {
     private float tankCapacity;
     private float topSpeed;
 
-    // Cruise control fields
-    private boolean cruiseControlOn;
-    private float cruiseControlTargetSpeed;
-    private static final float MIN_CRUISE_CONTROL_SPEED = 30; // Assuming a minimum speed for cruise control
-    private static final float MAX_CRUISE_CONTROL_SPEED = 150; // Assuming a maximum speed for cruise control
-
-    public Car(String typeName) {
-        this(typeName, 50, 180);
-    }
+    private static final float ACCELERATION_CONSUMPTION_RATE = 0.5f; // Gasoline consumed on acceleration
+    private static final float DECELERATION_CONSUMPTION_RATE = 0.2f; // Gasoline consumed on deceleration
 
     public Car(String typeName, float tankCapacity, float topSpeed) {
-        this.speed = 0;
-        this.gasolineLevel = tankCapacity; // Assuming a full tank at the beginning
+        speed = 0;
+        gasolineLevel = 0;
         this.typeName = typeName;
         this.tankCapacity = tankCapacity;
         this.topSpeed = topSpeed;
-        this.cruiseControlOn = false;
     }
 
     public void accelerate() {
-        if (gasolineLevel > 0 && !cruiseControlOn) {
-            // Standard acceleration
+        if (gasolineLevel > ACCELERATION_CONSUMPTION_RATE && speed < topSpeed) {
             speed = Math.min(speed + 10, topSpeed);
-        } else if (cruiseControlOn) {
-            // Adjust speed towards the target speed if cruise control is on
-            if (speed < cruiseControlTargetSpeed) {
-                speed = Math.min(speed + 10, cruiseControlTargetSpeed);
-            }
+            gasolineLevel -= ACCELERATION_CONSUMPTION_RATE;
         }
     }
 
     public void decelerate(int amount) {
-        if (gasolineLevel > 0) {
+        if (gasolineLevel > DECELERATION_CONSUMPTION_RATE) {
             speed = Math.max(speed - amount, 0);
-            if (cruiseControlOn && speed < cruiseControlTargetSpeed) {
-                // If speed drops below target speed, turn off cruise control
-                cruiseControlOn = false;
-            }
+            gasolineLevel -= DECELERATION_CONSUMPTION_RATE;
         }
     }
-
-    public boolean setCruiseControlTargetSpeed(float targetSpeed) {
-        if (targetSpeed >= MIN_CRUISE_CONTROL_SPEED && targetSpeed <= MAX_CRUISE_CONTROL_SPEED) {
-            this.cruiseControlTargetSpeed = targetSpeed;
-            return true;
-        }
-        return false;
-    }
-
-    public float getCruiseControlTargetSpeed() {
-        return cruiseControlTargetSpeed;
-    }
-
-    public boolean turnOnCruiseControl() {
-        if (speed >= MIN_CRUISE_CONTROL_SPEED && speed <= topSpeed && gasolineLevel > 0) {
-            cruiseControlOn = true;
-            return true;
-        }
-        return false;
-    }
-
-    public void turnOffCruiseControl() {
-        cruiseControlOn = false;
-    }
-
-    public boolean isCruiseControlOn() {
-        return cruiseControlOn;
-    }
-
-    public float getSpeed() {
+    float getSpeed() {
         return speed;
     }
 
-    public String getTypeName() {
+    String getTypeName() {
         return typeName;
     }
 
-    public void fillTank() {
+    void fillTank() {
         gasolineLevel = tankCapacity;
     }
 
-    public float getGasolineLevel() {
+    float getGasolineLevel() {
         return gasolineLevel;
     }
 
-    public float getTankCapacity() {
+    float getTankCapacity() {
         return tankCapacity;
     }
 
-    public float getTopSpeed() {
+    float getTopSpeed() {
         return topSpeed;
     }
 
-    public float getMinCruiseControlSpeed() {
-        return MIN_CRUISE_CONTROL_SPEED;
+    protected void setSpeed(float speed) {
+        if (speed >= 0 && speed <= topSpeed) {
+            this.speed = speed;
+        }
+    }
+
+    protected void setGasolineLevel(float gasolineLevel) {
+        if (gasolineLevel >= 0 && gasolineLevel <= tankCapacity) {
+            this.gasolineLevel = gasolineLevel;
+        }
     }
 }
