@@ -1,10 +1,12 @@
+package TaskSet1;
+
 // Module 3.1. Task 1.
 
 public class Driving {
     public static void main(String[] args) {
 
-        Car regularCar = new Car("Regular Car", 40, 180);
-        SportsCar sportsCar = new SportsCar("Sports Car", 40, 250); // Example with higher top speed
+        Car regularCar = new Car("Regular TaskSet1.Car", 40, 180);
+        SportsCar sportsCar = new SportsCar("Sports TaskSet1.Car", 40, 250); // Example with higher top speed
 
         // Fill the tanks
         regularCar.fillTank();
