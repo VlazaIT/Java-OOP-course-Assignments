@@ -1,6 +1,8 @@
 package TaskSet2;
 
-public class VehicleDemo {
+// Task 1,2.
+
+    public class VehicleDemo {
     public static void main(String[] args) {
         Vehicle car1 = new Car("petrol", "white");
         Vehicle motorcycle1 = new Motorcycle("petrol", "blue");

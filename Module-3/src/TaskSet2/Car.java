@@ -2,28 +2,26 @@ package TaskSet2;
 
 // Task 1
 
-public class Car implements Vehicle {
-
-    private String fuel;
+public class Car extends AbstractVehicle {
     private String color;
 
     public Car(String fuel, String color) {
-        this.fuel = fuel;
+        super(fuel);
         this.color = color;
     }
-    @Override
-    public void start() {
-        System.out.println("Car is starting...");
-    }
-
-    @Override
-    public void stop() {
-        System.out.println("Car is stopping...");
-    }
+//    @Override
+//    public void start() {
+//        System.out.println("Car is starting...");
+//    }
+//
+//    @Override
+//    public void stop() {
+//        System.out.println("Car is stopping...");
+//    }
 
     @Override
     public String getInfo() {
-        return "Type: Car\nFuel: " + fuel + "\nColor: " + color;
+        return "Type: Car\n" + super.getInfo() + "\nColor: " + color;
     }
 
 }
