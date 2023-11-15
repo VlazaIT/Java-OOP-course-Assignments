@@ -6,8 +6,8 @@ public class Bus extends AbstractVehicle {
 
     private int capacity;
 
-    public Bus(String fuel, int capacity) {
-        super(fuel);
+    public Bus(String fuel, int capacity, double fuelEfficiency) {
+        super(fuel, fuelEfficiency);
         this.capacity = capacity;
     }
 

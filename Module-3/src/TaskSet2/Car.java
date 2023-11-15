@@ -5,8 +5,8 @@ package TaskSet2;
 public class Car extends AbstractVehicle {
     private String color;
 
-    public Car(String fuel, String color) {
-        super(fuel);
+    public Car(String fuel, String color, double fuelEfficiency) {
+        super(fuel, fuelEfficiency);
         this.color = color;
     }
 //    @Override

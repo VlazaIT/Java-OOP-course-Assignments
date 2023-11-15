@@ -1,14 +1,14 @@
 package TaskSet2;
 
-// Task 1,2,3.
+// Task 1,2,3,4.
 
     public class VehicleDemo {
     public static void main(String[] args) {
-        Vehicle car1 = new Car("petrol", "white");
-        Vehicle motorcycle1 = new Motorcycle("petrol", "blue");
-        Vehicle bus = new Bus("diesel", 85);
-        Vehicle electricCar = new ElectricCar("green");
-        Vehicle electricMotorcycle = new ElectricMotorcycle("yellow");
+        Vehicle car1 = new Car("petrol", "white", 22.0);
+        Vehicle motorcycle1 = new Motorcycle("petrol", "blue", 43.0);
+        Vehicle bus = new Bus("diesel", 85, 47.0);
+        Vehicle electricCar = new ElectricCar("green", 0.15);
+        Vehicle electricMotorcycle = new ElectricMotorcycle("yellow", 0.24);
 
         System.out.println("Vehicle Demonstration\n");
 
@@ -22,8 +22,11 @@ package TaskSet2;
     private static void demoExecution(Vehicle vehicle) {
         vehicle.start();
         vehicle.stop();
-        if (vehicle instanceof ElectricVehicle electric) {
-            electric.charge();
+        if (vehicle instanceof ElectricVehicle) {
+            ((ElectricVehicle) vehicle).charge();
+            System.out.println("Energy Efficiency: " + vehicle.calculateFuelEfficiency() + " kWh/km");
+        } else {
+            System.out.println("Fuel Efficiency: " + vehicle.calculateFuelEfficiency() + " mpg");
         }
         System.out.println(vehicle.getInfo() + "\n");
     }

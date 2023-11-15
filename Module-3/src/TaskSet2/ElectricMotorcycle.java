@@ -4,10 +4,12 @@ package TaskSet2;
 
 public class ElectricMotorcycle extends AbstractVehicle {
     private String color;
+    private double energyEfficiency; // Energy efficiency in kWh/km
 
-    public ElectricMotorcycle(String color) {
-        super("Electric");
+    public ElectricMotorcycle(String color, double energyEfficiency) {
+        super("Electric",0);
         this.color = color;
+        this.energyEfficiency = energyEfficiency;
     }
 
     @Override
@@ -18,5 +20,10 @@ public class ElectricMotorcycle extends AbstractVehicle {
     @Override
     public void charge() {
         System.out.println("Electric Motorcycle is charging...");
+    }
+
+    @Override
+    public double calculateFuelEfficiency() {
+        return energyEfficiency;
     }
 }

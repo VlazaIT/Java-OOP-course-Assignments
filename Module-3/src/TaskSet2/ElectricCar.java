@@ -4,10 +4,12 @@ package TaskSet2;
 
 public class ElectricCar extends AbstractVehicle {
     private String color;
+    private double energyEfficiency;
 
-    public ElectricCar(String color) {
-        super("Electric");
+    public ElectricCar(String color, double energyEfficiency) {
+        super("Electric", 0);
         this.color = color;
+        this.energyEfficiency = energyEfficiency;
     }
 
     @Override
@@ -20,4 +22,8 @@ public class ElectricCar extends AbstractVehicle {
         System.out.println("Electric Car is charging...");
     }
 
+    @Override
+    public double calculateFuelEfficiency() {
+        return energyEfficiency;
+    }
 }

@@ -1,6 +1,6 @@
 package TaskSet2;
 
-// Task 1
+// Task 1,4
 
 public interface Vehicle {
     void start();
@@ -8,5 +8,7 @@ public interface Vehicle {
     void stop();
 
     String getInfo();
+
+    double calculateFuelEfficiency();
 
 }

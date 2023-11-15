@@ -4,9 +4,11 @@ package TaskSet2;
 
 public abstract class AbstractVehicle implements Vehicle, ElectricVehicle {
     public String fuelType;
+    public double fuelEfficiency;
 
-    public AbstractVehicle(String fuelType) {
+    public AbstractVehicle(String fuelType, double fuelEfficiency) {
         this.fuelType = fuelType;
+        this.fuelEfficiency = fuelEfficiency;
     }
 
     @Override
@@ -27,5 +29,10 @@ public abstract class AbstractVehicle implements Vehicle, ElectricVehicle {
     @Override
     public void charge() {
         System.out.println("This vehicle cannot be charged.");
+    }
+
+    @Override
+    public double calculateFuelEfficiency() {
+        return fuelEfficiency;
     }
 }
