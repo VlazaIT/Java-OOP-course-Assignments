@@ -34,4 +34,37 @@ public class Library {
             books.add(book);
         }
     }
+
+    public void reserveBook(LibraryMember member, Book book) {
+        if (!book.isReserved() && isBookAvailable(book)) {
+            book.setReserved(true);
+            member.addReservedBook(book);
+            System.out.println("Book reserved successfully.");
+        } else {
+            System.out.println("Book is already reserved or not available.");
+        }
+    }
+
+    // Helper method to check if a book is available
+    private boolean isBookAvailable(Book book) {
+        return books.contains(book);
+    }
+
+    public void cancelReservation(LibraryMember member, Book book) {
+        if (member.getReservedBooks().contains(book)) {
+            book.setReserved(false);
+            member.removeReservedBook(book);
+            System.out.println("Reservation canceled successfully.");
+        } else {
+            System.out.println("No reservation found for this book by this member.");
+        }
+    }
+
+    public void displayReservedBooks(LibraryMember member) {
+        System.out.println("Reserved books for " + member.getName() + ":");
+        for (Book reservedBook : member.getReservedBooks()) {
+            System.out.println(reservedBook.getTitle());
+        }
+    }
+
 }
