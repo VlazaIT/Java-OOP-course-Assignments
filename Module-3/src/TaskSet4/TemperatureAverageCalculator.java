@@ -5,7 +5,6 @@ package TaskSet4;
 import java.io.*;
 import java.net.*;
 import java.text.*;
-import java.util.*;
 
 public class TemperatureAverageCalculator {
     public static void main(String[] args) {
