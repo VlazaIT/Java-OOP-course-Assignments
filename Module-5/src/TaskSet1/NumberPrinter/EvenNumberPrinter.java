@@ -1,4 +1,4 @@
-package TaskSet1;
+package TaskSet1.NumberPrinter;
 
 class EvenNumberPrinter implements Runnable {
     private final int max;

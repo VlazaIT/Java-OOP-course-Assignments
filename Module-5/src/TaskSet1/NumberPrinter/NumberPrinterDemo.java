@@ -1,4 +1,4 @@
-package TaskSet1;
+package TaskSet1.NumberPrinter;
 
 public class NumberPrinterDemo {
     public static void main(String[] args) {
