@@ -1,4 +1,4 @@
-package TaskSet2;
+package TaskSet2.TicketReservationSystem;
 
 public class TicketReservationSystem {
     public static void main(String[] args) {

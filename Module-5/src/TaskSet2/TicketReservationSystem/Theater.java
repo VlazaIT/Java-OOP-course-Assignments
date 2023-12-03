@@ -1,4 +1,4 @@
-package TaskSet2;
+package TaskSet2.TicketReservationSystem;
 
 class Theater {
     private int availableSeats;
